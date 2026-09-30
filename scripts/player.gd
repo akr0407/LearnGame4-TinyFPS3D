@@ -58,6 +58,11 @@ func _physics_process(delta: float) -> void:
 	velocity.z = direction.z * SPEED
 	
 	move_and_slide()
+	
+	if $CameraPivot/InteractionRay.is_colliding():
+		var collider = $CameraPivot/InteractionRay.get_collider()
+		print(collider)
+		
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
