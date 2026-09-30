@@ -59,9 +59,9 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	if $CameraPivot/InteractionRay.is_colliding():
-		var collider = $CameraPivot/InteractionRay.get_collider()
-		print(collider)
+	#if $CameraPivot/InteractionRay.is_colliding():
+		#var collider = $CameraPivot/InteractionRay.get_collider()
+		#print(collider)
 		
 
 func _input(event: InputEvent) -> void:
@@ -82,3 +82,11 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			
+	if Input.is_action_just_pressed("interact"):
+		if $CameraPivot/InteractionRay.is_colliding():
+			var collider = $CameraPivot/InteractionRay.get_collider()
+			print(collider)
+			
+			if collider.has_method("interact"):
+				collider.interact()
