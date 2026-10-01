@@ -18,4 +18,5 @@ shape = SubResource("CapsuleShape3D_hs3mr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="InteractionRay" type="RayCast3D" parent="CameraPivot" unique_id=1236235851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 target_position = Vector3(0, 0, -3)

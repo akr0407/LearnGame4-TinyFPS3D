@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cjwnp8kog1yt8" path="res://scene/player.tscn" id="1_itxqv"]
 [ext_resource type="Script" uid="uid://7knorknuxn6g" path="res://scripts/door.gd" id="2_v0l8b"]
+[ext_resource type="Script" uid="uid://ci6a88a21y6x2" path="res://scripts/switch.gd" id="3_wp4xf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hs3mr"]
 size = Vector3(20, 0.2, 20)
@@ -14,11 +15,22 @@ background_mode = 1
 background_color = Color(0.3894809, 0.77972883, 0.886226, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0l8b"]
-albedo_color = Color(1, 0.40392157, 1, 1)
+albedo_color = Color(0.23566195, 6.768387e-08, 5.4147094e-08, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_itxqv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v0l8b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ro8iu"]
+albedo_color = Color(0.6528765, 0.010586443, 0.1251956, 1)
+metallic = 0.22
+roughness = 0.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_kmsdu"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qjvy2"]
+size = Vector3(0.3, 0.3, 0.3)
 
 [node name="Main" type="Node3D" unique_id=2058046638]
 
@@ -52,3 +64,31 @@ mesh = SubResource("BoxMesh_itxqv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DoorPivot/Door" unique_id=1313593271]
 shape = SubResource("BoxShape3D_v0l8b")
+
+[node name="Switch" type="StaticBody3D" parent="." unique_id=2094403629 node_paths=PackedStringArray("door")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2075093, 0, 0)
+script = ExtResource("3_wp4xf")
+door = NodePath("../DoorPivot/Door")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Switch" unique_id=367260596]
+material_override = SubResource("StandardMaterial3D_ro8iu")
+mesh = SubResource("BoxMesh_kmsdu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch" unique_id=408012360]
+shape = SubResource("BoxShape3D_qjvy2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1062848396]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1564959152]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"

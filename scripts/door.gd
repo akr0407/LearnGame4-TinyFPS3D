@@ -1,7 +1,8 @@
 extends StaticBody3D
 
-var is_open = false
 @export var door_speed = 180.0
+
+var is_open = false
 var target_rotation = 0.0
 
 # Called when the node enters the scene tree for the first time.
@@ -20,6 +21,9 @@ func _process(delta: float) -> void:
 	)
 
 func interact() -> void:
+	toggle_door()
+
+func toggle_door() -> void:
 	is_open = not is_open
 	print("Door open: ", is_open)
 	
@@ -28,4 +32,4 @@ func interact() -> void:
 	else:
 		target_rotation = 0
 	
-	print("Rotation Y: ", target_rotation)
+	print("Door rotation Y: ", target_rotation)
