@@ -79,9 +79,9 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("esc"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#if event is InputEventMouseButton:
+		#if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			
 	if Input.is_action_just_pressed("interact"):
 		if $CameraPivot/InteractionRay.is_colliding():
