@@ -16,5 +16,5 @@ func _process(_delta: float) -> void:
 
 
 func _on_restart_button_pressed() -> void:
-	print("restart button pressed")
+	#print("restart button pressed")
 	get_tree().reload_current_scene()

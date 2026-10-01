@@ -12,8 +12,8 @@ func _process(_delta: float) -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
-	print(body)
+	#print(body)
 	if body.is_in_group("player"):
-		print("Player entered exit area")
+		#print("Player entered exit area")
 		get_parent().game_completed = true
-		print("Game completed: ", get_parent().game_completed)
+		#print("Game completed: ", get_parent().game_completed)

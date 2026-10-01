@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 func interact() -> void:
 	#print("switch interacted")
 	is_active = not is_active
-	print("Switch status: ", is_active)
+	#print("Switch status: ", is_active)
 	
 	if is_active:
 		$MeshInstance3D.material_override.albedo_color = Color.FOREST_GREEN

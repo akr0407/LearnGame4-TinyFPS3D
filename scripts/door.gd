@@ -25,11 +25,11 @@ func interact() -> void:
 
 func toggle_door() -> void:
 	is_open = not is_open
-	print("Door open: ", is_open)
+	#print("Door open: ", is_open)
 	
 	if is_open == true:
 		target_rotation = 90
 	else:
 		target_rotation = 0
 	
-	print("Door rotation Y: ", target_rotation)
+	#print("Door rotation Y: ", target_rotation)
